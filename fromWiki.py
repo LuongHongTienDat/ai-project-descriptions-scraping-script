@@ -18,6 +18,7 @@ rows = driver.find_elements(By.CSS_SELECTOR,'#bodyContent li')
 for row in rows: 
     df.loc[len(df.index)] = [url,row.text]
 
+print(df)
 df.to_excel('data/from_wiki.xlsx')
     
 driver.quit()
