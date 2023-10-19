@@ -11,7 +11,8 @@ for filename in os.listdir(folder_path):
         dataframes.append(df)
 
 combined_df = pd.concat(dataframes, ignore_index=True)
-combined_df =  combined_df.iloc[:, 1:]  # This removes the first column
+combined_df = combined_df.iloc[:, 1:]  # This removes the first column
+combined_df = combined_df.dropna()
 print(combined_df.info())
 output_file = 'ai_description.xlsx'  # Specify the output file path and name
 combined_df.to_excel(output_file, index=False)  
